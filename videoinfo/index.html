@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Video Info</title>
+</head>
+
+<body>
+  <h1>Video Info</h1>
+  <form>
+    <div>
+      <label>Select a video</label>
+      <input type="number" />
+    </div>
+
+    <button type="submit">Get Info</button>
+
+    <h1 id="result"></h1>
+  </form>
+
+  <script>
+    const electron = require('electron');
+    const { ipcRenderer } = electron;
+
+    document.querySelector('form').addEventListener('submit', (event) => {
+      event.preventDefault();
+      const { value } = document.querySelector('input');
+      ipcRenderer.send('convert:submit', value);
+    });
+
+    ipcRenderer.on('convert:result', (event, satoshi) => {
+      document.querySelector('#result').innerHTML = `Satoshis: ${satoshi}`;
+    });
+  </script>
+</body>
+
+</html>

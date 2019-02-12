@@ -1,0 +1,27 @@
+{
+  "name": "videoinfo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "electron": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "rm -rf dist && electron-builder"
+  },
+  "build": {
+    "appId": "12995",
+    "mac": {
+      "category": "Productivity"
+    }
+  },
+  "dependencies": {
+    "fluent-ffmpeg": "^2.1.2",
+    "i": "^0.3.6",
+    "npm": "^6.7.0",
+    "satoshi-bitcoin": "^1.0.4"
+  },
+  "devDependencies": {
+    "electron": "^4.0.4",
+    "electron-builder": "^20.38.5"
+  }
+}
